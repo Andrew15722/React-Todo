@@ -16,8 +16,8 @@ class TodoForm extends React.Component {
 	handleSubmit = (event) => {
 		event.preventDefault();
 
-		// * id can also be replaced by id: uuid() from the uuid library.
 		// * making a new object and taking everything from current state and adding Date.now().
+		// * id can also be replaced by id: uuid() from the uuid library.
 		this.props.create({ ...this.state, id: Date.now() });
 		this.setState({ task: '' });
 	};

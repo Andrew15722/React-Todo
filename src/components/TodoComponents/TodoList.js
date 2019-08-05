@@ -21,9 +21,17 @@ class TodoList extends React.Component {
 		});
 	};
 
+	remove = (id) => {
+		this.setState({
+			// * checking if todo.id is equal to the id being passed into the remove method.
+			// * Then returning new array that will get rid of the one being passed in.
+			todos: this.state.todos.filter((todo) => todo.id !== id)
+		});
+	};
+
 	render() {
 		const todos = this.state.todos.map((todo) => {
-			return <Todo task={todo.task} />;
+			return <Todo remove={this.remove} id={todo.id} key={todo.id} task={todo.task} />;
 		});
 		return (
 			<div>
